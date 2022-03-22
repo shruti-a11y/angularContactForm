@@ -1,0 +1,123 @@
+<div class="container-lg mt-4">
+  <!-- form -->
+  <!-- (ngSubmit)="getFormData(contactForm.value)" -->
+  <!-- (ngSubmit)="submitUers(contactForm.value)" -->
+  <form
+    #contactForm="ngForm"
+    (ngSubmit)="submitUers(contactForm.value)"
+    class="row g-3"
+  >
+    <h5>Personal Details</h5>
+    <div class="col-md-6">
+      <label for="fname" class="form-label">First Name</label>
+      <input
+        type="text"
+        name="fname"
+        ngModel
+        #fname="ngModel"
+        class="form-control"
+        id="fname"
+        pattern="[a-zA-Z]+$"
+        required
+      />
+      <span *ngIf="fname.invalid && fname.touched" style="color: red"
+        >Name is required
+      </span>
+    </div>
+    <div class="col-md-6">
+      <label for="lname" class="form-label">Last Name</label>
+      <input
+        type="text"
+        name="lname"
+        ngModel
+        #lname="ngModel"
+        class="form-control"
+        id="lname"
+        pattern="[a-zA-Z]+$"
+        required
+      />
+      <span *ngIf="lname.invalid && lname.touched" style="color: red"
+        >Please enter valid input
+      </span>
+    </div>
+
+    <h5>Account Details</h5>
+
+    <div class="col-12">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        ngModel
+        #email="ngModel"
+        [email]="true"
+        class="form-control"
+        id="email"
+        required
+      />
+      <span *ngIf="email.invalid && email.touched" style="color: red"
+        >Please enter valid input
+      </span>
+    </div>
+    <div class="col-12">
+      <label for="address" class="form-label">Address</label>
+      <input
+        type="text"
+        name="address"
+        ngModel
+        class="form-control"
+        id="address"
+        placeholder="1234 Main St"
+        required
+      />
+    </div>
+
+    <div class="col-md-6">
+      <label for="city" class="form-label">City</label>
+      <input
+        type="text"
+        name="city"
+        ngModel
+        class="form-control"
+        id="city"
+        required
+      />
+    </div>
+    <div class="col-md-4">
+      <label for="storageMode" class="form-label">Stroge Medium</label>
+      <select
+        id="storageMode"
+        name="storageMode"
+        ngModel
+        class="form-select"
+        required
+      >
+        <option selected>Choose...</option>
+        <option>DataBase</option>
+        <option>Local File</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Zip</label>
+      <input
+        type="text"
+        name="inputZip"
+        ngModel
+        class="form-control"
+        id="inputZip"
+        required
+      />
+    </div>
+
+    <div class="col-12 text-center mt-4">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="contactForm.invalid"
+      
+      >
+        Sign in
+      </button>
+    </div>
+  </form>
+</div>
